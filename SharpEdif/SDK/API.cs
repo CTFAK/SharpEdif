@@ -724,7 +724,7 @@ namespace SharpEdif
         public static int GetProperties(mv* mV, LPEDATA* edPtr, bool bMasterItem)
         {
             Utils.Log("GetProperties got called");
-            var props = edPtr->editData.props;
+            /*var props = edPtr->editData.props;
             if (!props.propsFilled)
             {
                 UserMethods.FillProperties(edPtr->editData.props);
@@ -732,7 +732,7 @@ namespace SharpEdif
                 props.propsFilled = true;
             }
             
-            SDK.mvInsertProps(mV,edPtr,edPtr->editData.props.ObtainData(),1,1);
+            SDK.mvInsertProps(mV,edPtr,edPtr->editData.props.ObtainData(),1,1);*/
             return 1;
         }
 
