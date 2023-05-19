@@ -249,11 +249,11 @@ namespace SharpEdif
             Utils.Log("GetObjInfos got called");
             //TODO We might need this one in future, idk
 #if EDITTIME
-            Utils.CopyStringToMemoryA(SDK.extName,ObjName,255);
-            Utils.CopyStringToMemoryA(SDK.extAuthor,ObjAuthor,255);
-            Utils.CopyStringToMemoryA(SDK.extCopyright,ObjCopyright,255);
-            Utils.CopyStringToMemoryA(SDK.extComment,ObjComment,1024);
-            Utils.CopyStringToMemoryA(SDK.extHttp,ObjHttp,255);
+            //Utils.CopyStringToMemoryA(SDK.extName,ObjName,255);
+            //Utils.CopyStringToMemoryA(SDK.extAuthor,ObjAuthor,255);
+            //Utils.CopyStringToMemoryA(SDK.extCopyright,ObjCopyright,255);
+            //Utils.CopyStringToMemoryA(SDK.extComment,ObjComment,1024);
+            //Utils.CopyStringToMemoryA(SDK.extHttp,ObjHttp,255);
 #endif
             
             
