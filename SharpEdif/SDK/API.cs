@@ -179,8 +179,8 @@ namespace SharpEdif
         [DllExport("Initialize",CallingConvention.StdCall)]
         public static int Initialize(mv* mV, int quiet)
         {
-            SharpEdif.AllocConsole();
-            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
+            //SharpEdif.AllocConsole();
+            //Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
             SharpEdif.LoadACEs();
 
             return 0;
