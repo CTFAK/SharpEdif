@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{A7AD4D86-AD4D-4B82-AF06-FDFFDED24B55}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>SharpEdif</RootNamespace>
+        <AssemblyName>SharpEdif</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>9</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Runtime|x86' ">
+      <OutputPath>..\CompiledExtension</OutputPath>
+      <PlatformTarget>x86</PlatformTarget>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+      <OutputPath>..\CompiledExtension</OutputPath>
+      <PlatformTarget>x86</PlatformTarget>
+      <DefineConstants>EDITTIME;</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup>
+      <PostBuildEvent>cd $(SolutionDir)SharpEdif.Builder\bin\x64\Debug\net7.0\
+SharpEdif.Builder.exe $(SolutionDir)CompiledExtension\SharpEdif.dll </PostBuildEvent>
+    </PropertyGroup>
+    <ItemGroup>
+
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Extension.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="SDK\API.cs" />
+        <Compile Include="SDK\Common.cs" />
+        <Compile Include="SDK\FusionStructs.cs" />
+        <Compile Include="SDK\Parameters.cs" />
+        <Compile Include="SDK\SDK.cs" />
+        <Compile Include="SDK\SharpEdif.cs" />
+        <Compile Include="SDK\Utils.cs" />
+        <Compile Include="UserMethods.cs" />
+        <Compile Include="UserStructs.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
