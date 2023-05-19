@@ -22,6 +22,7 @@ With SharpEdif's attribution and custom build system, it's easy for anyone to ma
 ##  Dependencies
 
 SharpEdif requires the [.NET 4.7.2 Development Kit](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472).
+
 SharpEdif's Builder requires [.NET 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 After running the installer, you may proceed.
