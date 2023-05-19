@@ -22,6 +22,7 @@ With SharpEdif's attribution and custom build system, it's easy for anyone to ma
 ##  Dependencies
 
 SharpEdif requires the [.NET 4.7.2 Development Kit](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472).
+SharpEdif's Builder requires [.NET 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 
 After running the installer, you may proceed.
 
@@ -43,7 +44,7 @@ Once you've modified the template to your hearts content, you can move onto comp
 
 ##  Compiling your extension
 
-Right click the SharpEdif solution on the right and press `Build Solution` or do it through the key bind `Control + Shift + B`, then, right click the solution once again and press `Open Folder in File Explorer`.
+Right click the SharpEdif.Builder solution on the right and press `Build Solution` or do it through the keybind `Control + Shift + B`, and do the same for the SharpEdif solution. Then, right click the solution once again and press `Open Folder in File Explorer`.
 
 In the File Explorer go to the `CompiledExtension`folder, from there you should find your extension with the `.mfx` file extension. Copy this extension into your `Clickteam Fusion/Extensions/Unicode` folder and, you should be able to use your extension without problems!
 
