@@ -972,7 +972,7 @@ int*			mvHInst;				// Application HINSTANCE
 
 	public struct AppMiniHeader
 	{
-		public int gaDWType; // "PAME"
+		public unsafe fixed byte gaDWType[4]; // "PAME"
 		public short gaVersion; // Version number
 		public short gaSubVersion; // Sub-version number
 		public int gaPrdVersion; // MMF version

@@ -28,7 +28,6 @@ namespace SharpEdif
             }
             var newString = Marshal.StringToHGlobalAnsi(str);
             MemoryCopy(newString.ToPointer(),(void*)ptr,len);
-
             
         }
         public static unsafe void CopyStringToMemoryW(string str, byte* ptr, int cleanupLen)

@@ -179,8 +179,8 @@ namespace SharpEdif
         [DllExport("Initialize",CallingConvention.StdCall)]
         public static int Initialize(mv* mV, int quiet)
         {
-            //SharpEdif.AllocConsole();
-            //Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
+            SharpEdif.AllocConsole();
+            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
             SharpEdif.LoadACEs();
 
             return 0;
@@ -359,7 +359,8 @@ namespace SharpEdif
         [DllExport("HandleRunObject",CallingConvention.StdCall)]
         public static short HandleRunObject(LPRDATA* rdPtr)
         {
-            Utils.Log("HandleRunObject got called");
+            Console.WriteLine(Marshal.PtrToStringAnsi(new IntPtr(rdPtr->rHo.hoAdRunHeader->rhApp->m_miniHdr.gaDWType)));
+            //Utils.Log("HandleRunObject got called");
             return 0;
         }
 
@@ -532,7 +533,7 @@ namespace SharpEdif
         {
             Utils.Log("GetConditionTitle got called");
 #if EDITTIME
-            Utils.CopyStringToMemoryA(SDK.conditionNames[code],strBuf,maxLen);
+            Utils.CopyStringToMemoryA(SDK.conditionParameterNames[code][param],strBuf,maxLen);
 #endif
         }
 
@@ -541,7 +542,7 @@ namespace SharpEdif
         {
             Utils.Log("GetActionTitle got called");
 #if EDITTIME
-            Utils.CopyStringToMemoryA(SDK.actionNames[code],strBuf,maxLen);
+            Utils.CopyStringToMemoryA(SDK.actionParameterNames[code][param],strBuf,maxLen);
 #endif
 
         }

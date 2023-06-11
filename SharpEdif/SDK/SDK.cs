@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text;
 using SharpEdif.User;
 
 namespace SharpEdif
@@ -27,6 +28,10 @@ namespace SharpEdif
         public static string[] actionEditorNames;
         public static string[] expressionEditorNames;
 
+        public static string[][] conditionParameterNames;
+        public static string[][] actionParameterNames;
+        public static string[][] expressionParameterNames;
+        
         public static int* conditionCallbacks;
         public static int* actionCallbacks;
         public static int* expressionCallbacks;
@@ -79,7 +84,7 @@ namespace SharpEdif
         }
         public static string CNC_GetStringParameter(LPRDATA* rdPtr)
         {
-            return Marshal.PtrToStringAnsi(new IntPtr(CallRuntimeFunction(rdPtr, 17, 0xFFFFFFFF, 0)));
+            return Marshal.PtrToStringAuto(new IntPtr(CallRuntimeFunction(rdPtr, 17, 0xFFFFFFFF, 0)));
         }
         public static byte* CNC_GetStringParameterPtr(LPRDATA* rdPtr)
         {
@@ -94,7 +99,33 @@ namespace SharpEdif
             return CallRuntimeFunction(rdPtr, 17, 0xFFFFFFFF, 0);
         }
 
+        public static string PtrToString(void* ptr)
+        {
+            var sb = new StringBuilder();
+            int position = 0;
+            while (true)
+            {
+                var c = ((byte*)ptr)[position];
+                if (c == 0)
+                    break;
+                sb.Append((char)c);
+                position++;
+            }
 
+            return sb.ToString();
+        }
+
+        public static byte* StringToPtr(string str)
+        {
+            var mem = (byte*)Marshal.AllocHGlobal(str.Length+1).ToPointer();
+            for (int i = 0; i < str.Length; i++)
+            {
+                mem[i] = (byte)str[i];
+            }
+
+            mem[str.Length] = 0;
+            return mem;
+        }
         public static int CNC_GetFirstExpressionParameterInt(LPRDATA* rdPtr, int first) => CNC_GetFirstExpressionParameter(rdPtr, first, 0);
         public static int CNC_GetNextExpressionParameterInt(LPRDATA* rdPtr, int first) => CNC_GetNextExpressionParameter(rdPtr, first, 0);
         
@@ -136,7 +167,6 @@ namespace SharpEdif
         {
             int funcAddr = (int)mv->mvCallFunction;
             var mvFunction = (delegate* unmanaged[Stdcall]<LPEDATA*,int,int,int,int,int>)funcAddr;
-            Console.WriteLine(((int)funcAddr).ToString("X4"));
             return mvFunction(edPtr,functionIndex,param1,param2,param3);
         }
     }

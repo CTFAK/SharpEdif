@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using SharpEdif.Builder;
 using SharpEdif.User;
 
 namespace SharpEdif
@@ -31,13 +30,14 @@ namespace SharpEdif
 
     public class ACEAttribute : Attribute
     {
-        public string MenuName;
-        public string EditorName;
-        
+      
         public ACEAttribute(string menuName, string editorName)
         {
-            MenuName = menuName;
-            EditorName = editorName;
+           
+        }
+        public ACEAttribute(string menuName, string editorName,string[] parameterNames)
+        {
+            
         }
 
     }
@@ -46,10 +46,16 @@ namespace SharpEdif
         public ConditionAttribute(string menuName, string editorName) : base(menuName, editorName)
         {
         }
+        public ConditionAttribute(string menuName, string editorName,string[] parameterNames) : base(menuName, editorName, parameterNames)
+        {
+        }
     }
     public class ActionAttribute : ACEAttribute
     {
         public ActionAttribute(string menuName, string editorName) : base(menuName, editorName)
+        {
+        }
+        public ActionAttribute(string menuName, string editorName,string[] parameterNames) : base(menuName, editorName, parameterNames)
         {
         }
     }
