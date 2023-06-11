@@ -86,6 +86,6 @@ Zip that folder, and it's ready to be released for anybody's use!
 | [Yunivers](https://github.com/AITYunivers) | Minor help implementing structures, and testing. |
 | [SortaCore](https://github.com/SortaCore) | Developer of DarkEdif, which was used for a small amount of reference. |
 
-SharpEdif is licensed under [GNU Affero General Public License v3.0](https://github.com/CTFAK/SharpEdif/blob/master/LICENSE).
+SharpEdif is licensed under an [MIT License](https://github.com/CTFAK/SharpEdif/blob/master/LICENSE).
 
-Last Updated May 19th, 2023.
+Last Updated May 29th, 2023.
